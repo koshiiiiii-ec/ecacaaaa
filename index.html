@@ -52,24 +52,24 @@
       z-index: 2;
     }
 
-    /* Heart on top */
+    /* Heart (center of envelope) */
     .heart {
       position: absolute;
       top: 45%;
       left: 50%;
-      transform: translate(-50%, -50%) scale(1);
+      transform: translate(-50%, -50%);
       font-size: 2em;
       color: #d6336c;
-      transition: transform 0.3s;
       z-index: 3;
-    }
-    .envelope:hover .heart {
-      transform: translate(-50%, -50%) scale(1.2);
+      transition: opacity 0.8s ease;
     }
 
-    /* Open state (rotate flap up) */
+    /* When open → flap up + hide heart */
     .open .flap {
       transform: rotateX(180deg);
+    }
+    .open .heart {
+      opacity: 0;
     }
 
     /* Hidden note */
@@ -117,7 +117,7 @@
   <!-- Envelope -->
   <div class="envelope" onclick="openEnvelope()" id="envelope">
     <div class="flap"></div>
-    <div class="heart">❤️</div>
+    <div class="heart">💌</div>
   </div>
 
   <!-- Hidden note -->
@@ -146,3 +146,4 @@
   </script>
 </body>
 </html>
+  

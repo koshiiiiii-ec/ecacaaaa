@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Erica 💌</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #87ceeb; /* Sky blue */
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin: 10px;
+      color: #d6336c;
+      text-shadow: 1px 1px 3px white;
+      z-index: 2;
+    }
+
+    /* Envelope container */
+    .envelope {
+      position: relative;
+      width: 200px;
+      height: 120px;
+      background: #fff;
+      border: 2px solid #d6336c;
+      margin-top: 20px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    /* Flap */
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 60px solid #d6336c;
+      transform-origin: top;
+      transition: transform 1s ease;
+      z-index: 2;
+    }
+
+    /* Heart on top */
+    .heart {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      font-size: 2em;
+      color: #d6336c;
+      transition: transform 0.3s;
+      z-index: 3;
+    }
+    .envelope:hover .heart {
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+
+    /* Open state (rotate flap up) */
+    .open .flap {
+      transform: rotateX(180deg);
+    }
+
+    /* Hidden note */
+    .note {
+      display: none;
+      margin-top: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #d6336c;
+      font-size: 1.2em;
+      color: #333;
+      text-align: center;
+      max-width: 300px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease;
+      z-index: 2;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Flower decorations */
+    .flower {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      opacity: 0.9;
+      animation: float 10s infinite ease-in-out alternate;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0px) rotate(0deg); }
+      to { transform: translateY(-30px) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1>I like you 💕</h1>
+  <h1>Erica</h1>
+
+  <!-- Envelope -->
+  <div class="envelope" onclick="openEnvelope()" id="envelope">
+    <div class="flap"></div>
+    <div class="heart">❤️</div>
+  </div>
+
+  <!-- Hidden note -->
+  <div class="note" id="note">
+    <p>Hi Erica 💙,<br><br>
+    This is my little note just for you.  
+    I really like you more than words can say! 💕</p>
+  </div>
+
+  <audio id="song" src="song.mp3"></audio>
+
+  <!-- Flowers scattered -->
+  <img src="https://i.imgur.com/pwO6Y4t.png" class="flower" style="top:10%; left:5%;">
+  <img src="https://i.imgur.com/pwO6Y4t.png" class="flower" style="top:20%; right:10%;">
+  <img src="https://i.imgur.com/pwO6Y4t.png" class="flower" style="bottom:15%; left:15%;">
+  <img src="https://i.imgur.com/pwO6Y4t.png" class="flower" style="bottom:20%; right:20%;">
+  <img src="https://i.imgur.com/pwO6Y4t.png" class="flower" style="top:50%; left:80%;">
+  <img src="https://i.imgur.com/pwO6Y4t.png" class="flower" style="top:70%; left:30%;">
+
+  <script>
+    function openEnvelope() {
+      document.getElementById("envelope").classList.add("open");
+      document.getElementById("note").style.display = "block";
+      document.getElementById("song").play();
+    }
+  </script>
+</body>
+</html>
